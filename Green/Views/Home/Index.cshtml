@@ -1,0 +1,265 @@
+﻿@{
+//   ViewBag.Title = "Home Page";
+}
+@if (User.IsInRole("Admin"))
+{
+
+     <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1400px;min-width:500px" id="home">
+        <img class="w3-image" src="~/Images/CASINO4.jpg" alt="Hamburger Catering" width="1000" height="500">
+        <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+         
+        </div>
+    </header>
+    
+}
+
+else
+{
+    <link href="~/Content/SLIDE.css" rel="stylesheet" type="text/css" />
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+
+            
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+
+                    <center>
+                        <img src="~/Images/CASINO3.jpg" width="1000" height="400" />
+                    </center>
+
+                </div>
+
+                                <div class="item">
+                            <center>
+                                <img src="~/Images/SARGF-NRGP.jpg" width="1000" height="400" />
+                            </center>
+
+                        </div>
+                <div class="item">
+
+                    <center> <img src="~/Images/CASINO4.jpg" width="1000" height="400" /></center>
+                </div>
+                <div class="item">
+
+                    <center> <img src="~/Images/CASINO7.jpg" width="1000" height="400" /></center>
+                </div>
+                <div class="item">
+
+                    <center> <img src="~/Images/casino.jpg" width="1000" height="400" /></center>
+                </div>
+                <div class="item">
+
+                    <center> <img src="~/Images/casino2.jpg" width="1000" height="400" /></center>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+     
+        <div class="col-md-12 center">
+            <div class="raw">
+              
+              <center>
+                  <h2>
+                      <b>
+                          <i>
+                              <font color="red">VISION:</font>         
+                          </i>
+                          <h4>
+                              “We strive to be the premier gambling regulator in the country,<br /> consistently maintaining and enhancing public trust with integrity, transparency and credibility.<br />
+                              We also aim to transform the gambling industry for the benefit of all our stakeholders.”
+                          </h4>
+                      </b>
+                      
+                  </h2>    
+                </center>  
+                <div>
+                    <center>
+                        <h2>
+                            <b>
+                                <i>
+                                    <font color="red">MISION:</font>  
+                                    <br />
+                                </i>
+                                <h4>“We will protect the interest of the public by ensuring the integrity of legalised gambling through strict enforcement of applicable legislation,<br /> 
+                                    the licensing of qualified entities and individuals, and fulfilling the objectives of the Provincial Government to deliver a significant source of revenue,<br />
+                                    enhance tourism, develop and transform the gaming and horse racing industry, <br />
+                                    whilst promoting broad socio- economic and employment opportunities.”
+                                </h4>
+                            </b>
+
+                        </h2>
+                    </center>
+                </div>
+              <br/>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <style>
+                    * {
+                        box-sizing: border-box;
+                    }
+
+                    body {
+                        font-family: "Lato", sans-serif;
+                    }
+
+                    /* Style the tab */
+                    .tab {
+                        float: left;
+                        border: 1px solid #ccc;
+                        background-color: #f1f1f1;
+                        width: 30%;
+                        height: 300px;
+                    }
+
+                        /* Style the buttons inside the tab */
+                        .tab button {
+                            display: block;
+                            background-color: inherit;
+                            color: black;
+                            padding: 22px 16px;
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            text-align: left;
+                            cursor: pointer;
+                            font-size: 17px;
+                        }
+
+                            /* Change background color of buttons on hover */
+                            .tab button:hover {
+                                background-color: #ddd;
+                            }
+
+                            /* Create an active/current "tab button" class */
+                            .tab button.active {
+                                background-color: #ccc;
+                            }
+
+                    /* Style the tab content */
+                    .tabcontent {
+                        float: left;
+                        padding: 0px 12px;
+                        border: 1px solid #ccc;
+                        width: 70%;
+                        border-left: none;
+                        height: 300px;
+                        display: none;
+                    }
+
+                    /* Clear floats after the tab */
+                    .clearfix::after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                    }
+                </style>
+               
+                    <div class="tab">
+                        <button class="tablinks" onmouseover="openCity(event, 'Physical Address')">Physical Address</button>
+                        <button class="tablinks" onmouseover="openCity(event, 'Postal Address')">Postal Address</button>
+                        <button class="tablinks" onmouseover="openCity(event, 'Contacts')">Contacts</button>
+                    </div>
+
+                    <div id="Physical Address" class="tabcontent">
+                        @*<h3>Physical Address</h3>*@
+                        <font color="Red">
+
+                            <b>Physical Address:</b>
+                        </font>
+                        <br />
+                        <br />
+                        <p>
+                            Head Office: Redlands Estate, 1 George MacFarlane Lane, Wembley<br />
+                            Pietermaritzburg<br />
+                            3201<br />
+                        </p>
+
+                        <img src="~/Images/redlands.jpeg" width="300" height="190" />
+                    </div>
+
+                    <div id="Postal Address" class="tabcontent">
+                        @*<h3>Postal Address</h3>*@
+
+                        <font color="Red">
+                            <b>Postal Address:</b>
+                        </font>
+                        <br />
+                        <br />
+                        <p>
+                            Private Bag X9102<br />
+                            Pietermaritzburg<br />
+                            3200<br />
+                        </p>
+                    </div>
+
+                    <div id="Contacts" class="tabcontent">
+                        <font color="Red">
+                            <b>Contacts:</b>
+                        </font>
+                        <br />
+
+                        <br />
+                        <p>
+                            <ul>
+                                <li>
+                                    Tel: +27(33) 345 2714<br />
+                                </li>
+                                <li>
+                                    Fax: +27(33) 342 7853
+                                </li>
+                            </ul>
+
+                            <br />
+                            <br />
+
+                        </p>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+
+
+                </div>
+        </div>
+}
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+
+     

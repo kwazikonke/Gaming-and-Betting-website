@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Green.Models.forms>
+
+@{
+    ViewBag.Title = "";
+}
+<center>
+    <h2>
+        <b>
+            <i>
+
+                <font color="red">Application Forms:</font>
+            </i>
+
+        </b>
+
+    </h2>
+</center>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.file)
+        </th>*@
+        
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationForms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationForms)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+
+
+        <td>
+            
+            <a href="@Url.Action("Download","forms", new { id=item.ID })" rel="tooltip" title="Download" class="btn btn-success btn-simple btn-xs"><i class="fa fa-download">Download</i></a>
+
+            @*@Html.ActionLink("Details", "Details", new { id=item.ID }) |*@
+     
+        </td>
+    </tr>
+}
+
+</table>

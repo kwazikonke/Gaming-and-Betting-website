@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Green.Models.Vaccancie>
+
+@{
+    ViewBag.Title = "";
+}
+<center>
+    <h2>
+        <b>
+            <i>
+
+                <font color="red">Vaccancies Forms:</font>
+            </i>
+
+        </b>
+
+    </h2>
+</center>
+
+
+<div class="container">
+
+    <div class="form-group">
+
+        <div class="input-group">
+
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+            <input type="text" id="Search" placeholder="Search" class="form-control" />
+
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Units</th>
+            <th> Position</th>
+            <th> Closing Date</th>
+            <th> Details</th>
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var Item in Model)
+        {
+            <tr class="Search">
+                <td>
+                    @Item.Units
+                </td>
+                <td>
+                    @Item.Position
+                </td>
+                <td>
+                    @Item.ClosingDate
+                </td>
+
+                <td>
+                    @Item.location
+                </td>
+
+                <td>
+
+                    <a href="@Url.Action("Downld","Vaccancies", new { id=Item.ID })" rel="tooltip" title="Download" class="btn btn-success btn-simple btn-xs"><i class="fa fa-download">Download</i></a>
+
+
+
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+            $(document).ready(function () {
+                function Contains(text_one, text_two) {
+                    if (text_one.indexOf(text_two) != -1)
+                        return true;
+                }
+                $("#Search").keyup(function () {
+                    var searchText = $("#Search").val().toLowerCase();
+                    $(".Search").each(function () {
+                        if (!Contains($(this).text().toLowerCase(), searchText)) {
+                            $(this).hide();
+                        }
+                        else {
+                            $(this).show();
+                        }
+                    })
+                }
+                )
+            }
+            )
+            var SendEmail = function () {
+
+                $.ajax({
+                    type: "Post",
+                    url: "/Students/SendMailToUser",
+                    success: function (data) {
+                        alert("Sucess")
+                    }
+
+
+                })
+
+            }
+</script>

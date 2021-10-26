@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Green.Models.ContactUs>
+
+@{
+    ViewBag.Title = "";
+}
+
+
+<center>
+    <h2>
+        <b>
+            <i>
+
+                <font color="red">List of Messages:</font>
+            </i>
+
+        </b>
+
+    </h2>
+</center>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Reason)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Reason)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        
+        <td>
+
+            <h77 class="btn btn-primary">
+               
+                @Html.ActionLink("Details", "Details", new { id = item.Email }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Email })
+                </h77>
+</td>
+    </tr>
+}
+</table>
+
+<style type="text/css">
+    .btn {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50; /* Green */
+    }
+</style>
+
+
+<script type="text/javascript">
+    $('#my_list').dataTable(
+          {
+              dom: 'Bfrtip',
+              lengthMenu: [
+                  [ 10, 25, 50, -1 ],
+                  [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+              ],
+              buttons: [
+                  'pageLength', 'pdf', 'print'
+              ]
+          }
+        );
+    $('#my_list')
+       .removeClass('display')
+       .addClass('table table-striped table-hover');
+</script>

@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Green.Models.Statistic>
+
+@{
+    ViewBag.Title = "";
+}
+
+<center>
+    <h2>
+        <b>
+            <i>
+
+                <font color="red">Statistics:</font>
+            </i>
+
+        </b>
+
+    </h2>
+</center>
+
+<div class="container">
+
+    <div class="form-group">
+
+        <div class="input-group">
+
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+            <input type="text" id="Search" placeholder="Search" class="form-control" />
+
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Statistics</th>
+            <th> Year</th>
+            <th> Details</th>
+            
+
+        </tr>
+    </thead>
+
+        <tbody>
+            @foreach (var Item in Model)
+            {
+                <tr class="Search">
+                    <td>
+                        @Item.Stats
+                    </td>
+                    <td>
+                        @Item.Year
+                    </td>
+                    <td>
+                        @Item.location
+                    </td>
+                    @*<tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stats)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Year)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.location)
+                        </td>*@
+
+                    <td>
+                        <a href="@Url.Action("Download","Statistics", new { id=Item.ID })" rel="tooltip" title="Download" class="btn btn-success btn-simple btn-xs"><i class="fa fa-download">Download</i></a>
+
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+
+
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                function Contains(text_one, text_two) {
+                    if (text_one.indexOf(text_two) != -1)
+                        return true;
+                }
+                $("#Search").keyup(function () {
+                    var searchText = $("#Search").val().toLowerCase();
+                    $(".Search").each(function () {
+                        if (!Contains($(this).text().toLowerCase(), searchText)) {
+                            $(this).hide();
+                        }
+                        else {
+                            $(this).show();
+                        }
+                    })
+                }
+                )
+            }
+            )
+            var SendEmail = function () {
+
+                $.ajax({
+                    type: "Post",
+                    url: "/Students/SendMailToUser",
+                    success: function (data) {
+                        alert("Sucess")
+                    }
+
+
+                })
+
+            }
+        </script>

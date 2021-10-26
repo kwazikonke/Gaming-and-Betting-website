@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Green.Models.Telbook>
+
+@{
+    ViewBag.Title = "";
+}
+<center>
+    <h2>
+        <b>
+            <i>
+
+                <font color="red">Telephone Book:</font>
+            </i>
+
+        </b>
+
+    </h2>
+</center>
+
+<div class="container">
+
+    <div class="form-group">
+
+        <div class="input-group">
+
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+            <input type="text" id="Search" placeholder="Search" class="form-control" />
+
+        </div>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Site</th>
+            <th> Unit</th>
+            <th> Cellphonenum</th>
+            <th> Name</th>
+            <th> Code</th>
+
+
+        </tr>
+    </thead>
+    @*<table class="table">
+        <tr class="Search">
+            <th>
+                @Html.DisplayNameFor(model => model.Site)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Units)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cellphoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th></th>
+        </tr>*@
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="Search">
+
+            <td>
+                @item.Site
+            </td>
+            <td>
+                @item.Units
+            </td>
+            <td>
+                @item.cellphoneNum
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>
+               @item.Code
+             </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Site)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Units)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cellphoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>*@
+        </tr>
+        }
+
+</table>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function Contains(text_one, text_two) {
+                if (text_one.indexOf(text_two) != -1)
+                    return true;
+            }
+            $("#Search").keyup(function () {
+                var searchText = $("#Search").val().toLowerCase();
+                $(".Search").each(function () {
+                    if (!Contains($(this).text().toLowerCase(), searchText)) {
+                        $(this).hide();
+                    }
+                    else {
+                        $(this).show();
+                    }
+                })
+            }
+            )
+        }
+        )
+        var SendEmail = function () {
+
+            $.ajax({
+                type: "Post",
+                url: "/Students/SendMailToUser",
+                success: function (data) {
+                    alert("Sucess")
+                }
+
+
+            })
+
+        }
+    </script>

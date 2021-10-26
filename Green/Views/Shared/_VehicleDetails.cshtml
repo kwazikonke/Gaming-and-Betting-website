@@ -1,0 +1,23 @@
+﻿@model Green.Models.Patient
+
+@{
+}
+<div class="container">
+    <br />
+    <h3>
+        @(Model.UserName)
+    </h3><br />
+    <img src="~/Images/" style="width:300px;height:300px" alt="user image" class="online" /><br />
+    @(Model.Name) Seats | @(Model.BirthDate) Doors<br />
+    @*<b><span class="fa fa-check"></span>  Air Condition</b><br />*@
+    <b><span class="fa fa-check"></span>  @(Model.Sex)</b><br />
+    @*Mileage: <b>@(Model.IsUnlimited == false ? $"{Model.MileagePerDay} Per km per day" : "Unlimited")</b><br />
+    Price per day: <b>ZAR @(Model.Rate)</b><br /><br />*@
+
+    <p>
+        <a class="btn btn-outline-dark" href="@(Url.Action("Index"))">Back to List</a>
+    </p>
+
+</div>
+
+

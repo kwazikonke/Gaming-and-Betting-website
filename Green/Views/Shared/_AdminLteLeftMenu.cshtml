@@ -1,0 +1,194 @@
+﻿@using Microsoft.AspNet.Identity
+@*
+    This partial controls the left menu of the AdminLTE dashboard and is called automatically by _AdminLteLayout
+       This is where you can add, modify, or remove navigation options in your app
+       TODO: This preserves the links as-is for the demo, which lead to broken pages!
+       It's up to you to make sure these links either get deleted or lead somewhere REAL!
+*@
+
+@{
+    Layout = null;
+
+}
+
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                @*<img src="/Content/AdminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image" />*@
+
+            </div>
+        </div>
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">
+                WELCOME TO KZNGBB
+                <img src="~/Images/KZNGBB.jpg" ,width="200" height="100" />
+            </li>
+            <li class="treeview-menu">
+                <a href="~/Home/Index.cshtml">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+
+            </li>
+
+            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-edit"></i> <span>Information</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="~/AnnualRs/Create"><i class="fa fa-circle-o"></i>Annual Reports</a></li>
+                        <li><a href="~/Statistics/Create"><i class="fa fa-circle-o"></i>Statistics</a></li>
+                        <li><a href="~/Vaccancies/Create"><i class="fa fa-circle-o"></i>Vaccancies</a></li>
+                        <li><a href="~/forms/Create"><i class="fa fa-circle-o"></i>Application Forms</a></li>
+                    </ul>
+
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-edit"></i> <span>Tenders</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="~/Bidders/Create"><i class="fa fa-circle-o"></i>List of Bidders</a></li>
+                        <li><a href="~/AwardNotices/Create"><i class="fa fa-circle-o"></i>AwardNotices</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-edit"></i> <span>Telephone List</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="~/Telbooks/Create"><i class="fa fa-circle-o"></i>Add Telephone Code</a></li>
+
+                    </ul>
+                </li>
+            }
+
+
+
+            else
+            {
+
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-info"></i> <span>About</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="~/Home/About"><i class="fa fa-circle-o"></i>About KZNGBB</a></li>
+                        <li><a href="~/Home/OrganisationalStructure"><i class="fa fa-circle-o"></i>Organization Structure</a></li>
+                        <li><a href="~/Home/Unit"><i class="fa fa-circle-o"></i>Organization Units</a></li>
+                        <li><a href="~/Home/BoardMembers"><i class="fa fa-circle-o"></i>Board Members</a></li>
+                        <li><a href="~/Home/BoardInfo"><i class="fa fa-circle-o"></i>Board Information</a></li>
+
+                    </ul>
+
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-database"></i> <span>Details</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="~/Home/Contact"><i class="fa fa-circle-o"></i>Address</a></li>
+                        <li><a href="~/ContactUs/Create"><i class="fa fa-phone"></i>Contact Us</a></li>
+                        <li><a href="~/ContactUs/Map"><i class="fa fa-location-arrow"></i>Location</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-info-circle"></i> <span>Information</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="~/AnnualRs/Index"><i class="fa fa-book"></i>Annual Reports</a></li>
+                        <li><a href="~/Statistics/Index"><i class="fa fa-book"></i>Statistics</a></li>
+                        <li><a href="~/Vaccancies/Index"><i class="fa fa-book"></i>Vaccancies</a></li>
+                        <li><a href="~/forms/Index"><i class="fa fa-book"></i>Application Forms</a></li>
+                    </ul>
+
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-minus-square"></i> <span>Photo Gallery</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="~/Galleries/Index"><i class="fa fa-picture-o"></i>Photo Album</a></li>
+
+                    </ul>
+
+                </li>
+
+                @*<li class="treeview">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>Licenses</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li><a href="~/Home/Contact"><i class="fa fa-circle-o"></i>Casinos</a></li>
+                    <li><a href="~/Home/Contact"><i class="fa fa-circle-o"></i>Bingos</a></li>
+                    <li><a href="~/Home/Contact"><i class="fa fa-circle-o"></i>Vaccancies</a></li>
+                    <li><a href="~/ContactUs/Map"><i class="fa fa-circle-o"></i>Application Forms</a></li>
+                </ul>
+            </li>*@
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-edit"></i> <span>Tenders</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="~/Bidders/Index"><i class="fa fa-circle-o"></i>List of Bidders</a></li>
+                        <li><a href="~/AwardNotices/Index"><i class="fa fa-circle-o"></i>AwardNotices</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-minus-square"></i> <span>Telephone Book</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="~/Telbooks/Index"><i class="fa fa-picture-o"></i>Teleohobe Book</a></li>
+
+                    </ul>
+
+                </li>
+
+            }
+
+            }
+
+        </ul>
+
+
+
+
+
+
+
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
